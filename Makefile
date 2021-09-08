@@ -4,13 +4,13 @@ CC := gcc
 
 TARGET := main
 
-all : $(TARGET)
+all : obj $(TARGET)
 
 main: main.o c8583.o
 #	$(CC) -o $@ $^ -g -fsanitize=address
 	$(CC) -o $@ $^
 
-$(OBJ):obj/%.o:src/%.c obj
+$(OBJ):obj/%.o:src/%.c
 	$(CC) -c -o $@ $< -I./include
 
 obj:
